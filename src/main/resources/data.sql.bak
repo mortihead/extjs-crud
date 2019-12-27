@@ -1,0 +1,3 @@
+INSERT INTO Cars (id, name, price) VALUES (1, 'Toyota Corolla', 25000);
+INSERT INTO Cars (id, name, price) VALUES (2, 'Mers', 50000);
+INSERT INTO Cars (id, name, price) VALUES (3, 'Mazda 3', 40000);

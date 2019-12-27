@@ -1,0 +1,16 @@
+target/
+.idea/
+logs/
+*.iml
+*.log
+atlassian-ide-plugin.xml
+*.orig
+orbtrc.*.txt
+deploy.sh
+bamboo_build.properties
+pom.xml.releaseBackup
+rebel.xml
+.project
+.settings
+.classpath
+.log
