@@ -12,3 +12,29 @@ Ext.define('CarCatalog.store.HelloStore', {
         }
     }
 });
+
+// var usersStore1 = Ext.create('Ext.data.Store', {
+//     model: 'User',
+//     proxy: {
+//         type: 'ajax',
+//         url: 'users',
+//         reader: {
+//             type: 'json',
+//             rootProperty: 'users'
+//         }
+//     },
+//     autoLoad: true
+// });
+
+Ext.define('CarCatalog.store.UsersStore', {
+    extend: 'Ext.data.Store',
+    model: 'User',
+    proxy: {
+        type: 'ajax',
+        url: 'users',
+        reader: {
+            type: 'json'
+        }
+    },
+    autoLoad: true
+});

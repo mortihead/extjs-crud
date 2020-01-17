@@ -11,11 +11,16 @@ Ext.define('CarCatalog.view.CarCatalogView', {
             region: 'center'
         },
         {
+            xtype: 'userGridView',
+            region: 'east'
+        },
+        {
             xtype: 'panel',
             html: '<div style="font: normal 10px cursive"><left><font size = "10">Car Catalog</font></left></div>',
             region: 'north',
             height: 80
         },
+
         {
             xtype: 'searchCarView',
             title: 'Поиск',

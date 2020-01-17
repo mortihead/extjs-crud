@@ -12,7 +12,8 @@ Ext.application({
 
     stores : [
         'CarCatalogStore',
-        'HelloStore'
+        'HelloStore',
+        'UsersStore'
     ],
     launch: function () {
        // Ext.Msg.alert('Title', 'Hello from '+Ext.getVersion(), Ext.emptyFn);

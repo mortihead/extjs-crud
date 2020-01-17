@@ -1,3 +1,48 @@
+Ext.define('CarCatalog.view.UserGridView', {
+    extend: 'Ext.grid.Panel',
+    alias: 'widget.userGridView',
+    width: 400,
+    height: 300,
+    frame: true,
+    iconCls: 'icon-user',
+    viewConfig: {
+        markDirty: false
+    },
+    columns: [
+        {
+            text: 'FirstName',
+            dataIndex: 'firstName'
+        },
+        {
+            text: 'LastName',
+            dataIndex: 'lastName'
+        },
+        {
+            text: 'Age',
+            dataIndex: 'age'
+        },
+        {
+            text: 'Eye Color',
+            dataIndex: 'eyeColor'
+        }
+    ],
+    usersStore: null,
+
+    initComponent: function () {
+        this.callParent();
+        var myUsersStore = Ext.getStore('UsersStore');
+        this.store = myUsersStore;
+        this.usersStore = myUsersStore;
+       // this.on('render', this.loadStore, this);
+    }
+    // ,
+    // loadStore: function () {
+    //      this.usersStore.load({
+    //        scope: this
+    //    });
+   // }
+});
+
 Ext.define('CarCatalog.view.CarGridView', {
     extend: 'Ext.grid.Panel',
     alias: 'widget.carGridView',
@@ -5,8 +50,8 @@ Ext.define('CarCatalog.view.CarGridView', {
     height: 300,
     frame: true,
     iconCls: 'icon-user',
-    viewConfig:{
-        markDirty:false
+    viewConfig: {
+        markDirty: false
     },
     columns: [
         {
@@ -15,7 +60,7 @@ Ext.define('CarCatalog.view.CarGridView', {
             sortable: true,
             dataIndex: 'name',
             editor: {
-                xtype:'textfield',
+                xtype: 'textfield',
                 allowBlank: false,
                 blankText: 'Это поле должно быть заполнено'
             }
@@ -26,7 +71,7 @@ Ext.define('CarCatalog.view.CarGridView', {
             sortable: true,
             dataIndex: 'price',
             editor: {
-                xtype:'textfield',
+                xtype: 'textfield',
                 regex: /^([0-9]{1,20})*$/,
                 regexText: 'Цена должна состоять из цифр',
                 allowBlank: false,

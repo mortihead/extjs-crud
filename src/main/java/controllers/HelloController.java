@@ -2,11 +2,14 @@ package controllers;
 
 import java.lang.management.ManagementFactory;
 import java.lang.management.OperatingSystemMXBean;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import model.Greeting;
+import model.User;
 import org.apache.log4j.Logger;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -46,5 +49,16 @@ public class HelloController {
         String infoString = "Arch: %s\nProcessors: %d\nOS Name: %s\nOS Version: %s\n";
         return String.format(infoString, osBean.getArch(), osBean.getAvailableProcessors(), osBean.getName(),
                 osBean.getVersion());
+    }
+
+    @RequestMapping("/users")
+    public List<User> getUsers() {
+        logger.warn("getUsers ==>");
+        List<User> res = new ArrayList<>();
+        res.add(new User("Nikolai", "B.", 43, "brown"));
+        res.add(new User("Oscar", "A.", 34, "red"));
+        res.add(new User("Lily", "C.", 25, "yellow"));
+        res.add(new User("July", "B.", 35, "clear"));
+        return res;
     }
 }
