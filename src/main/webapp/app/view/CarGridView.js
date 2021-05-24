@@ -30,33 +30,48 @@ Ext.define('CarCatalog.view.UserGridView', {
 
     initComponent: function () {
         this.callParent();
-        var myUsersStore = Ext.getStore('UsersStore');
-        this.store = myUsersStore;
-        this.usersStore = myUsersStore;
-       // this.on('render', this.loadStore, this);
+        // var myUsersStore = Ext.getStore('UsersStore');
+        // this.store = myUsersStore;
+        // this.usersStore = myUsersStore;
+        // this.on('render', this.loadStore, this);
     }
-    // ,
-    // loadStore: function () {
-    //      this.usersStore.load({
-    //        scope: this
-    //    });
-   // }
+    //  ,
+    //  loadStore: function () {
+    //       this.usersStore.load({
+    //         scope: this
+    //     });
+    // }
 });
 
 Ext.define('CarCatalog.view.CarGridView', {
     extend: 'Ext.grid.Panel',
     alias: 'widget.carGridView',
+    requires: [
+        'CarCatalog.store.CarCatalogStore'
+    ],
     width: 400,
     height: 300,
     frame: true,
+    store: Ext.getStore('CarCatalogStore'),
     iconCls: 'icon-user',
     viewConfig: {
         markDirty: false
     },
     columns: [
         {
-            text: 'Модель',
+            text: 'ID',
             flex: 1,
+            sortable: true,
+            dataIndex: 'id',
+            editor: {
+                xtype: 'textfield',
+                allowBlank: false,
+                blankText: 'Это поле должно быть заполнено'
+            }
+        },
+        {
+            text: 'Модель',
+            flex: 2,
             sortable: true,
             dataIndex: 'name',
             editor: {
@@ -66,14 +81,12 @@ Ext.define('CarCatalog.view.CarGridView', {
             }
         },
         {
-            flex: 2,
+            flex: 3,
             text: 'Цена',
             sortable: true,
             dataIndex: 'price',
             editor: {
                 xtype: 'textfield',
-                regex: /^([0-9]{1,20})*$/,
-                regexText: 'Цена должна состоять из цифр',
                 allowBlank: false,
                 blankText: 'Это поле должно быть заполнено'
             }
@@ -109,7 +122,15 @@ Ext.define('CarCatalog.view.CarGridView', {
                     text: 'add2',
                     iconCls: 'icon-add',
                     disabled: false
+                },
+                '-',
+                {
+                    action: 'refresh',
+                    text: 'refresh',
+                    iconCls: 'icon-refresh',
+                    disabled: false
                 }
+
             ]
         }
     ]

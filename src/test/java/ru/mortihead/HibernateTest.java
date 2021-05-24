@@ -1,21 +1,16 @@
 package ru.mortihead;
 
-import model.Car;
+import ru.mortihead.model.CarEntity;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.cfg.Configuration;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
-import service.CarService;
+import ru.mortihead.service.CarServiceImpl;
 
 import java.util.Collection;
-import java.util.List;
-
-import static org.junit.Assert.*;
 
 public class HibernateTest {
 
@@ -26,7 +21,7 @@ public class HibernateTest {
     public void before() {
         // setup the session factory
         Configuration configuration = new Configuration();
-        configuration.addAnnotatedClass(Car.class);
+        configuration.addAnnotatedClass(CarEntity.class);
 
         //   configuration.configure("hibernate.cfg.xml");
 
@@ -49,11 +44,12 @@ public class HibernateTest {
     @Test
     public void testInit() {
 
-        CarService service = new CarService();
-        Collection<Car> cars = service.getCars(null);
-        cars.forEach(c -> {
-            System.out.println(c.toString());
-        });
+        //todo: передалть тесты по-правильному!
+//        CarServiceImpl service = new CarServiceImp();
+//        Collection<CarEntity> carEntities = service.getCars(null);
+//        carEntities.forEach(c -> {
+//            System.out.println(c.toString());
+//        });
 
 
     }

@@ -1,4 +1,4 @@
-package controllers;
+package ru.mortihead.controllers;
 
 import java.lang.management.ManagementFactory;
 import java.lang.management.OperatingSystemMXBean;
@@ -8,8 +8,8 @@ import java.util.concurrent.atomic.AtomicLong;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import model.Greeting;
-import model.User;
+import ru.mortihead.model.Greeting;
+import ru.mortihead.model.User;
 import org.apache.log4j.Logger;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;

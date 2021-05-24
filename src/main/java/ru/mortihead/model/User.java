@@ -1,4 +1,4 @@
-package model;
+package ru.mortihead.model;
 
 import java.io.Serializable;
 

@@ -1,6 +1,6 @@
 Ext.define('CarCatalog.model.CarCatalogModel', {
     extend: 'Ext.data.Model',
-    fields: ['name', 'price'],
+    fields: ['id', 'name', 'price'],
     proxy: {
         type: 'rest',
         api: {

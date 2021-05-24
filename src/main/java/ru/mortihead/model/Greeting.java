@@ -1,4 +1,4 @@
-package model;
+package ru.mortihead.model;
 
 public class Greeting {
 

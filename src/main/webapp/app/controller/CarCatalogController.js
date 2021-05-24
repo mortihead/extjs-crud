@@ -66,14 +66,14 @@ Ext.define('CarCatalog.controller.CarCatalogController', {
             'carGridView  button[action=add2]': {
                 click: this.onAddCar2
             },
+            'carGridView  button[action=refresh]': {
+                click: this.onRefreshClick
+            },
             'carGridView  button[action=delete]': {
                 click: this.onDelCar
             },
             'searchCarView  textfield[name="search"]': {
                 change: this.onChangeText
-            },
-            'carGridView': {
-                cellclick: this.onLineGrid
             },
             'addCarFormView  button[action=save]': {
                 click: this.onSaveCar
@@ -85,12 +85,14 @@ Ext.define('CarCatalog.controller.CarCatalogController', {
                 change: this.onValidation
             }
         });
+
     },
 
     onSaveCar: function (button) {
         var me = this;
         var carModel = Ext.create('CarCatalog.model.CarCatalogModel');
         carModel.set(this.getAddCarFormView().down('form').getValues());
+        carModel.fields.id = null;
         carModel.save({
             success: function (operation, response) {
                 var objAjax = operation.data;
@@ -111,6 +113,33 @@ Ext.define('CarCatalog.controller.CarCatalogController', {
 
     onAddCar: function () {
         Ext.widget('addCarFormView');
+    },
+
+    onRefreshClick: function () {
+        //CarGridView().load(Ext.data.StoreManager.lookup('CarCatalogStore'));
+
+        var grid1 =
+        Ext.create('Ext.grid.Panel', {
+            title: 'Simpsons',
+            store: Ext.getStore('CarCatalogStore'),
+            columns: [
+                { text: 'ID', dataIndex: 'id' },
+                { text: 'Name', dataIndex: 'name' },
+                { text: 'Price', dataIndex: 'price', flex: 1 }
+            ],
+            height: 800,
+            width: 600
+             });
+
+        var wnd = Ext.create('Ext.window.Window', {
+            title: 'Cars',
+            height: 200,
+            width: 600,
+            layout: 'fit',
+            items: [grid1]
+        });
+        wnd.show();
+
     },
 
     onAddCar2: function () {

@@ -10,9 +10,10 @@
         <property name="hibernate.connection.driver_class">org.h2.Driver</property>
         <property name="hibernate.connection.username">sa</property>
         <property name="hibernate.connection.password">sql</property>
-        <property name="hibernate.hbm2ddl.auto">validate</property>
+        <property name="hibernate.hbm2ddl.auto">create</property>
 <!--        jdbc:h2:tcp://127.0.0.1:9092/local_db-->
 <!--        jdbc:h2:file:C:/Users/17889515/IdeaProjects/hibernateapp/db/local_db;AUTO_SERVER=TRUE-->
+        <!--        jdbc:h2:file:C:/Users/NBochkarev/.h2/local_db;AUTO_SERVER=TRUE-->
         <property name="hibernate.connection.url">jdbc:h2:tcp://127.0.0.1:9092/local_db</property>
 
     </session-factory>
