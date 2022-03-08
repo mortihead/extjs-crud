@@ -28,7 +28,7 @@
         <spring-framework-version>4.1.5.RELEASE</spring-framework-version>
         <hibernate.version>5.4.30.Final</hibernate.version>
         <log4j.version>1.2.17</log4j.version>
-        <liquibase.version>4.1.1</liquibase.version>
+        <liquibase.version>4.8.0</liquibase.version>
 
     </properties>
 
